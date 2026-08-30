@@ -12,13 +12,14 @@ type CartLine = { id: string; quantity: number; variantId: string; name: string;
 type ShopifyCart = { id: string; checkoutUrl: string; totalQuantity: number; subtotal: number; currencyCode: string; lines: CartLine[] };
 type DemoProduct = Omit<Product, "variants">;
 
-const demoSeed: DemoProduct[] = [
-  { id: "demo-1", variantId: "demo-variant-1", name: "Contour Heavyweight Tee", handle: "contour-heavyweight-tee", category: "Essentials", price: 48, currencyCode: "USD", availableForSale: true, color: "#d8d2c7", accent: "#2d2b28", label: "Bestseller" },
-  { id: "demo-2", variantId: "demo-variant-2", name: "Form Relaxed Trousers", handle: "form-relaxed-trousers", category: "New season", price: 86, currencyCode: "USD", availableForSale: true, color: "#292a2c", accent: "#cbc3b5", label: "New" },
-  { id: "demo-3", variantId: "demo-variant-3", name: "Studio Zip Jacket", handle: "studio-zip-jacket", category: "Outerwear", price: 118, currencyCode: "USD", availableForSale: true, color: "#a8a294", accent: "#f0ede6" },
-  { id: "demo-4", variantId: "demo-variant-4", name: "Arc Everyday Hoodie", handle: "arc-everyday-hoodie", category: "Core collection", price: 78, currencyCode: "USD", availableForSale: true, color: "#e6e1d7", accent: "#767064" },
-];
-const demoProducts: Product[] = demoSeed.map((product) => ({ ...product, variants: [{ id: product.variantId, title: "Default", availableForSale: true, price: product.price, currencyCode: product.currencyCode, selectedOptions: [] }] }));
+// Demo products
+// const demoSeed: DemoProduct[] = [
+//  { id: "demo-1", variantId: "demo-variant-1", name: "Contour Heavyweight Tee", handle: "contour-heavyweight-tee", category: "Essentials", price: 48, currencyCode: "USD", availableForSale: true, color: "#d8d2c7", accent: "#2d2b28", label: "Bestseller" },
+//  { id: "demo-2", variantId: "demo-variant-2", name: "Form Relaxed Trousers", handle: "form-relaxed-trousers", category: "New season", price: 86, currencyCode: "USD", availableForSale: true, color: "#292a2c", accent: "#cbc3b5", label: "New" },
+//  { id: "demo-3", variantId: "demo-variant-3", name: "Studio Zip Jacket", handle: "studio-zip-jacket", category: "Outerwear", price: 118, currencyCode: "USD", availableForSale: true, color: "#a8a294", accent: "#f0ede6" },
+//  { id: "demo-4", variantId: "demo-variant-4", name: "Arc Everyday Hoodie", handle: "arc-everyday-hoodie", category: "Core collection", price: 78, currencyCode: "USD", availableForSale: true, color: "#e6e1d7", accent: "#767064" },
+//];
+//const demoProducts: Product[] = demoSeed.map((product) => ({ ...product, variants: [{ id: product.variantId, title: "Default", availableForSale: true, price: product.price, currencyCode: product.currencyCode, selectedOptions: [] }] }));
 
 function formatMoney(value: number, currencyCode: string) {
   return new Intl.NumberFormat(currencyCode === "VND" ? "vi-VN" : "en-US", {
