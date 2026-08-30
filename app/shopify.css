@@ -1,0 +1,5 @@
+.product-visual::before { z-index: 1; pointer-events: none; }
+.product-visual > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.product-visual > img + small { z-index: 2; color: white; text-shadow: 0 1px 4px rgb(0 0 0 / 60%); }
+.checkout-button:disabled, .quick-add:disabled { cursor: not-allowed; opacity: .55; }
+.checkout-error { color: #a52620 !important; font-weight: 700; }
