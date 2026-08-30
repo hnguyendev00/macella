@@ -57,7 +57,10 @@ export default function Home() {
 
   useEffect(() => {
     const controller = new AbortController();
-    fetch("/api/shopify/products?country=US", { signal: controller.signal })
+    fetch(`/api/shopify/products?country=US&t=${Date.now()}`, {
+      signal: controller.signal,
+      cache: "no-store",
+    })
       .then((response) => response.json())
       .then((payload: { source?: string; products?: Product[] }) => {
         if (payload.source === "shopify" && payload.products?.length) { setProducts(payload.products); setCatalogSource("shopify") }
